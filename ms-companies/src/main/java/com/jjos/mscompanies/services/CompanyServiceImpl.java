@@ -44,7 +44,7 @@ public class CompanyServiceImpl implements CompanyService{
                         () -> new NoSuchElementException("Company not found")
                 );
         companyToUpdate.setLogo(company.getLogo());
-        companyToUpdate.setFoundationFDate(company.getFoundationFDate());
+        companyToUpdate.setFoundationDate(company.getFoundationDate());
         companyToUpdate.setFounder(company.getFounder());
         return this.companyRepository.save(companyToUpdate);
     }
