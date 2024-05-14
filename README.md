@@ -5,17 +5,80 @@ Este repositorio contiene los proyectos trabajados producto del curso de  config
 ## Microservicios
 
 1. **ms-companies:**
-   - Descripción: Microservicio para la gestión de compañías.
-   - Tecnologías: Spring Boot, PostgreSQL.
+
+   Este microservicio, parte de un proyecto basado en microservicios, está diseñado para gestionar la información relacionada con compañías. Utiliza Spring Boot y Spring Cloud para integrarse con otros componentes del sistema.
+   
+   ## Características
+   
+   - **Gestión de Compañías:** Proporciona endpoints para crear, leer, actualizar y eliminar información de compañías.
+   
+   - **Integración con Eureka:** Utiliza Eureka como servidor de registro y descubrimiento para que otros microservicios puedan localizarlo y comunicarse con él.
+   
+   - **Configuración Centralizada:** Se conecta a un servidor de configuración centralizada para obtener su configuración, lo que permite una gestión flexible y centralizada de la configuración de la aplicación.
+   
+   - **Base de Datos PostgreSQL:** Utiliza PostgreSQL como base de datos para almacenar la información de las compañías, con configuraciones que se obtienen dinámicamente del servidor de configuración centralizada.
+   
+   ## Configuración
+   
+   El archivo `application.yml` contiene la configuración de la aplicación, incluyendo el puerto en el que se ejecuta, el contexto del servlet, y la configuración para Eureka y el servidor de configuración centralizada.
+   
+   ## Dependencias Principales
+   
+   - `spring-boot-starter-actuator`
+   - `spring-boot-starter-data-jpa`
+   - `spring-boot-starter-web`
+   - `spring-boot-devtools`
+   - `postgresql`
+   - `lombok`
+   - `spring-boot-starter-test`
+   - `springdoc-openapi-starter-webmvc-ui`
+   - `spring-cloud-starter-netflix-eureka-client`
+   - `spring-cloud-starter-config`
+   
+   ## Ejecución
+   
+   Para ejecutar este microservicio, simplemente inicia la aplicación Spring Boot `MsCompaniesApplication` desde tu entorno de desarrollo o mediante el comando `mvn spring-boot:run` en la raíz del proyecto.
+   
+   Para más información sobre el proyecto completo y cómo se integra este microservicio con otros componentes, consulta la documentación o el código fuente de los otros microservicios en el repositorio.
 
 2. **ms-registry-server:**
-   - Descripción: Servidor de registro y descubrimiento (Eureka) para monitorizar el estado de los microservicios.
-   - Tecnologías: Spring Boot, Eureka Server.
+   
+   Este microservicio actúa como servidor de registro y descubrimiento (Eureka) en el proyecto de microservicios.
+   
+    ## Características
+
+   - **Servidor Eureka:** Proporciona un servidor de registro y descubrimiento para que los microservicios puedan registrarse y descubrirse entre sí dinámicamente.
+  
+   ## Configuración
+
+   El archivo `application.yml` contiene la configuración del servidor, incluyendo el nombre de la aplicación, el puerto en el que se ejecuta y la configuración de Eureka.
+
+   ## Dependencias Principales
+   
+   - `spring-boot-starter-actuator`: Proporciona puntos finales para monitorear y administrar la aplicación.
+   - `spring-cloud-starter-netflix-eureka-server`: Configura el servidor Eureka en el microservicio.
+   
+   ## Ejecución
+   
+   Para ejecutar este microservicio, simplemente inicia la aplicación Spring Boot `MsRegistryServerApplication` desde tu entorno de desarrollo o mediante el comando `mvn spring-boot:run` en la raíz del proyecto.
+   
+   Para más información sobre cómo se integra este microservicio con otros componentes del sistema, consulta la documentación o el código fuente de los otros microservicios en el repositorio.
+
 
 3. **ms-config-server:**
-   - Descripción: Servidor de configuración centralizada para proporcionar configuraciones a los microservicios.
-   - Tecnologías: Spring Boot, Spring Cloud Config Server.
+   
+   Este microservicio actúa como servidor de configuración centralizada para proporcionar configuraciones a los otros microservicios del sistema.
+   
+   ## Características
 
-## Repositorio
-Este repositorio contiene la configuración centralizada para los microservicios mencionados anteriormente.
+   - **Servidor de Configuración Centralizada:** Proporciona un servidor para almacenar y distribuir configuraciones a través de los microservicios del proyecto.
+   
+   - **Integración con Eureka:** Utiliza Eureka como servidor de registro y descubrimiento para que otros microservicios puedan localizarlo y comunicarse con él.
+   
+   - **Conexión con Repositorio Git:** Se conecta a un repositorio Git remoto para obtener las configuraciones, lo que permite una gestión flexible y versionada de la configuración de la aplicación.
+   
+   ## Configuración
+
+   El archivo `application.yml` contiene la configuración del servidor, incluyendo el nombre de la aplicación, el puerto en el que se ejecuta, la configuración de Eureka y la conexión con el
+
 
