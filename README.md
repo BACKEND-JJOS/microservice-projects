@@ -1,6 +1,6 @@
 # Microservicios - Configuración Centralizada
 
-Este repositorio contiene la configuración centralizada para los microservicios del proyecto.
+Este repositorio contiene los proyectos trabajados producto del curso de  configuración centralizada para los microservicios del proyecto.
 
 ## Microservicios
 
