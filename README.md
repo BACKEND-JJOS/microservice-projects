@@ -79,6 +79,18 @@ Este repositorio contiene los proyectos trabajados producto del curso de  config
    
    ## Configuración
 
-   El archivo `application.yml` contiene la configuración del servidor, incluyendo el nombre de la aplicación, el puerto en el que se ejecuta, la configuración de Eureka y la conexión con el
+   El archivo `application.yml` contiene la configuración del servidor, incluyendo el nombre de la aplicación, el puerto en el que se ejecuta, la configuración de Eureka y la conexión con el repositorio Git.
+   
+   ## Dependencias Principales
+   
+   - `spring-cloud-config-server`: Habilita el servidor de configuración centralizada.
+   - `spring-cloud-starter-netflix-eureka-client`: Integración con Eureka para el registro del servicio.
+   - `spring-boot-starter-test`: Herramientas de prueba para aplicaciones Spring Boot.
+   
+   ## Ejecución
+
+   Para ejecutar este microservicio, simplemente inicia la aplicación Spring Boot `MsConfigServerApplication` desde tu entorno de desarrollo o mediante el comando `mvn spring-boot:run` en la raíz del proyecto.
+   
+   Para más información sobre el proyecto completo y cómo se integra este microservicio con otros componentes, consulta la documentación o el código fuente de los otros microservicios en el repositorio.
 
 
