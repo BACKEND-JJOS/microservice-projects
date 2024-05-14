@@ -1,0 +1,24 @@
+server:
+    port: 7777
+spring:
+    application:
+        name: ms-config-server
+    profiles:
+        active: default
+    cloud:
+        config:
+            server:
+                git:
+                    username: jjorti
+                    password: ${GIT_TOKEN}
+                    uri: https://github.com/BACKEND-JJOS/microservice-configs.git
+                    default-label: develop
+                    clone-on-start: true
+
+eureka:
+    instance:
+        instance-id: "${spring.application.name}:${random.value}"
+    client:
+        service-url:
+            defaultZone:  http://localhost:8761/eureka/
+
