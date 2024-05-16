@@ -1,0 +1,17 @@
+server:
+    port: 7070
+    servlet:
+        context-path: /ms-reports
+spring:
+    application:
+        name: ms-reports
+    profiles:
+        default: default
+    config:
+        import: "optional:configserver:http://localhost:7777"
+eureka:
+    instance:
+        instance-id: "${spring.application.name}:${random.value}"
+    client:
+        service-url:
+            defaultZone:  http://localhost:8761/eureka/
