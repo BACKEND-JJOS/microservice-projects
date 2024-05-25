@@ -4,10 +4,7 @@ import com.jjos.msreports.service.ReportService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
@@ -25,5 +22,22 @@ public class ReportController {
         log.info("GET: Report {}", name);
         return  ResponseEntity
                 .ok(response);
+    }
+
+    @PostMapping()
+    public ResponseEntity<Map<String, String>> post(@RequestBody String report){
+        var response = Map.of("report" ,this.reportService.saveReport(report));
+        log.info("POST: Report {}", response );
+        return  ResponseEntity
+                .ok(response);
+    }
+
+    @DeleteMapping(path = "{name}")
+    public ResponseEntity<Void> delete(@PathVariable String name){
+        this.reportService.deleteReport(name);
+        log.info("DELETE: Report {}", name);
+        return ResponseEntity
+                .noContent()
+                .build();
     }
 }

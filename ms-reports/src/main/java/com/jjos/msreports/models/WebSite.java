@@ -9,14 +9,9 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
+@Builder
 public class WebSite implements Serializable {
 
-    private Long id;
-
     private String name;
-
-    private Category category;
-
-    private String description;
 
 }

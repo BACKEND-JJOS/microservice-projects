@@ -4,8 +4,7 @@ import com.jjos.msreports.beans.LoadBalancerConfiguration;
 import com.jjos.msreports.models.Company;
 import org.springframework.cloud.loadbalancer.annotation.LoadBalancerClient;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
@@ -15,5 +14,11 @@ public interface CompaniesRepository {
 
     @GetMapping(path = "/ms-companies/company/{name}")
     Optional<Company> getByName(@PathVariable String name);
+
+    @PostMapping(path = "/ms-companies/company")
+    Company postByName(@RequestBody Company company);
+
+    @DeleteMapping(path = "/ms-companies/company/{name}")
+    Company deleteByName(@PathVariable String name);
 
 }
