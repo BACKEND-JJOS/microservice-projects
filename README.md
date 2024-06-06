@@ -118,7 +118,55 @@ Este repositorio contiene los proyectos trabajados producto del curso de  micros
    Para más información sobre el proyecto completo y cómo se integra este microservicio con otros componentes, consulta la documentación o el código fuente de los otros microservicios en el repositorio.
 
 
+
+5. **ms-report:**
+
+   Este microservicio, parte de un proyecto basado en microservicios, está diseñado para la gestión de reportes. Utiliza Spring Boot, Spring Cloud, Feign Client y Stream Kafka.
+   
+   ## Características
+   
+   - **Gestión de Reportes:** Proporciona endpoints para crear, leer y eliminar información de reportes.
+   
+   - **Integración con Eureka:** Utiliza Eureka como servidor de registro y descubrimiento para que otros microservicios puedan localizarlo y comunicarse con él.
+   
+   - **Configuración Centralizada:** Se conecta a un servidor de configuración centralizada para obtener su configuración, lo que permite una gestión flexible y centralizada de la configuración de la aplicación.
+   
+   - **Open Feign:** Utiliza feign client para conectarse con el microservicio de ms-companies y consumir el crud de ese micro, además de tener el balanceador de cargas configurado.
+
+   - **Kafka Producer:**  Utiliza Kafka para producir un stream para que el microservicio de ms-report-listener realice los procesos necesarios. 
+   
+   ## Configuración
+   
+   El archivo `application.yml` contiene la configuración de la aplicación, incluyendo el puerto en el que se ejecuta, el contexto del servlet, la configuración  de servidor de zookeper y de kafka, la configuración para Eureka, el servidor de configuración centralizada.
+   
+   ## Dependencias Principales
+   
+   - `spring-boot-starter-actuator`
+   - `spring-boot-starter-web`
+   - `spring-boot-devtools`
+   - `spring-cloud-starter-openfeign`
+   - `lombok`
+   - `spring-boot-starter-test`
+   - `spring-cloud-starter-netflix-eureka-client`
+   - `spring-cloud-starter-config`
+   - `spring-cloud-starter-stream-kafka`
+   
+   ## Ejecución
+   
+   Para ejecutar este microservicio, simplemente inicia la aplicación Spring Boot `MsCompaniesApplication` desde tu entorno de desarrollo o mediante el comando `mvn spring-boot:run` en la raíz del proyecto.
+   
+   Para más información sobre el proyecto completo y cómo se integra este microservicio con otros componentes, consulta la documentación o el código fuente de los otros microservicios en el repositorio.
+
+
 # Ejecución del proyecto
+
+Ejecutar docker-compose para poder tener las bases de datos y servidores necesarios, en la ruta raíz ejecute:
+
+docker-compose  up -d
+
+Deberá ver algo así
+![alt text](resources-readme/docker-compose.png)
+
 
 1. **ms-registry-server**
 
@@ -144,5 +192,18 @@ Este repositorio contiene los proyectos trabajados producto del curso de  micros
 4. **ms-companies**
 
    Ejecutar mvn spring-boot:run en la raiz del proyecto o Run desde Intellij Idea
+
+5. **ms-reports**
+
+   Ejecutar mvn spring-boot:run en la raiz del proyecto o Run desde Intellij Idea
+
+6. **ms-report-listener**
+
+   Ejecutar mvn spring-boot:run en la raiz del proyecto o Run desde Intellij idea
+
+Podrá ver los microservicios registrados en eureka
+![alt text](resources-readme/microservicios-registrados.png)
+
+
 
 

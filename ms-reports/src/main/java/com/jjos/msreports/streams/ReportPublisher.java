@@ -8,11 +8,11 @@ import org.springframework.stereotype.Component;
 @AllArgsConstructor
 public class ReportPublisher {
 
+
     private final StreamBridge streamBridge;
 
     /*
         TOPIC NAME -> consumerReport
-
      */
     public void publishReport(String report){
         //Se debe de crear siempre 3 topics

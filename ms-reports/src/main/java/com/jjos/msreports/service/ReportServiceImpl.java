@@ -55,7 +55,7 @@ public class ReportServiceImpl implements  ReportService{
                 .build();
 
         this.companiesRepository.postByName(company);
-
+        this.reportPublisher.publishReport(report);
         return "Saved";
     }
 
