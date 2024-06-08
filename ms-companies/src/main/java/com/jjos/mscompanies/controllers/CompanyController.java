@@ -2,6 +2,8 @@ package com.jjos.mscompanies.controllers;
 
 import com.jjos.mscompanies.entities.Company;
 import com.jjos.mscompanies.services.CompanyService;
+import io.micrometer.core.annotation.Timed;
+import io.micrometer.observation.annotation.Observed;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
@@ -25,6 +27,8 @@ public class CompanyController {
 
     @Operation(summary = "get a company given a company name")
     @GetMapping(path = "{name}")
+    @Observed(name = "company.name")
+    @Timed(value = "company.name")
     public ResponseEntity<Company> get(@PathVariable  String name){
         log.info("GET: Company {}", name);
         return  ResponseEntity
@@ -33,6 +37,8 @@ public class CompanyController {
 
     @Operation(summary = "create a company")
     @PostMapping
+    @Observed(name = "company.save")
+    @Timed(value = "company.save")
     public ResponseEntity<Company> post(@RequestBody  Company company) {
         log.info("POST: Company {}", company.getName());
         Company createdCompany = this.companyService.crete(company);
